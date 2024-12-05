@@ -163,3 +163,6 @@ let g:NERDTreeGitStatusShowIgnored = 1
 "==============================================================================
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 map <Leader>h :VimspectorDisassemble<CR>
+
+
+iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
