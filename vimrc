@@ -31,6 +31,11 @@ Plug 'vim-airline/vim-airline'
 "debug
 Plug 'puremourning/vimspector'
 
+"ts
+Plug 'marijnh/tern_for_vim'
+Plug 'othree/yajs.vim'
+
+
 call plug#end()
 
 let mapleader="\<Space>"
@@ -163,6 +168,13 @@ let g:NERDTreeGitStatusShowIgnored = 1
 "==============================================================================
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 map <Leader>h :VimspectorDisassemble<CR>
+
+"==============================================================================
+"tern插件
+"==============================================================================
+let g:tern_command = ['node', '/usr/local/bin/tern']
+let g:tern#is_show_argument_hints_enabled = 1 " 可选，显示函数参数提示
+
 
 
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
