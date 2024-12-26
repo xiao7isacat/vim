@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'                  " 主题
 " go 主要插件
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'jstemmer/gotags'
+
 "调出终端
 Plug 'voldikss/vim-floaterm'
 
@@ -93,11 +94,20 @@ let g:ycm_complete_in_strings = 1                           " 在字符串输入
 let g:ycm_show_diagnostics_ui = 1                           " 禁用语法检查
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>" |            " 回车即选中当前项
 nnoremap <Leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>|     " 跳转到定义处
+nnoremap <Leader>k :YcmCompleter GoToImplementation<CR>|     " 跳转到定义处
 nnoremap <Leader>l :YcmCompleter GoToReferences<CR>|     " 跳转到定义处
 nnoremap <Leader>o <C-o>
 nnoremap <Leader>i <C-i> 
 let g:ycm_min_num_of_chars_for_completion=2                 " 从第2个键入字符就开始罗列匹配项
 let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/youcompleteme/third_party/ycmd/.ycm_extra_conf.py"
+""let g:ycm_language_server = [
+"       \ {
+"       \   'name': 'go',
+"       \   'filetypes': [ 'go' ],
+"       \   'cmdline': [ 'gopls' ],
+"       \   'project_root_files': [ 'go.mod', '.git/' ],
+"       \ }
+"     \ ]
 
 
 "==============================================================================
@@ -117,6 +127,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_generate_tags = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 let g:godef_split=2
 autocmd FileType go nmap <buffer> gb  <Plug>(go-build)
@@ -174,7 +186,5 @@ map <Leader>h :VimspectorDisassemble<CR>
 "==============================================================================
 let g:tern_command = ['node', '/usr/local/bin/tern']
 let g:tern#is_show_argument_hints_enabled = 1 " 可选，显示函数参数提示
-
-
 
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
